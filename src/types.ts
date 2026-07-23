@@ -18,8 +18,8 @@ export interface TeacherProfile {
   paymentDetails?: string; // bKash / Rocket / Nagad / Bank
   pinCode?: string; // app lock PIN
   isPinEnabled?: boolean;
-  approvalStatus: 'pending' | 'approved' | 'rejected' | 'suspended';
-  status?: 'pending' | 'approved' | 'rejected' | 'suspended';
+  approvalStatus?: 'pending' | 'approved' | 'rejected' | 'suspended' | string;
+  status?: 'pending' | 'approved' | 'rejected' | 'suspended' | string;
   isProfileComplete?: boolean;
   profileCompleted?: boolean;
   fullName?: string;
@@ -27,7 +27,7 @@ export interface TeacherProfile {
   bannerImage?: string;
   mobile?: string;
   instituteName?: string;
-  role?: 'admin' | 'teacher';
+  role?: 'admin' | 'teacher' | string;
   registrationDate?: string;
   createdAt?: string;
   updatedAt?: string;
@@ -65,6 +65,9 @@ export interface Student {
   admissionDate: string;
   status: 'Active' | 'Inactive' | 'Archived';
   photoUrl?: string; // base64
+  profilePhoto?: string;
+  whatsapp?: string;
+  email?: string;
   gender?: 'Boy' | 'Girl';
   createdAt: string;
   studentName?: string;
@@ -84,7 +87,9 @@ export interface Payment {
   studentClass: string;
   month: string; // e.g. "2026-07"
   paymentDate: string; // ISO string
+  date?: string;
   amountPaid: number;
+  amount?: number;
   dueAmount: number;
   advanceAmount: number;
   status: 'Paid' | 'Unpaid' | 'Partial';

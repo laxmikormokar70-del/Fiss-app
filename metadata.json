@@ -1,6 +1,6 @@
 {
-  "name": "fise app",
-  "description": "",
+  "name": "Coaching ERP",
+  "description": "Coaching ERP & Student Management Application",
   "requestFramePermissions": [
     "geolocation"
   ],

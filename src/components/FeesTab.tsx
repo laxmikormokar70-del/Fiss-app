@@ -217,7 +217,10 @@ export default function FeesTab({
               </button>
             )}
             <button 
-              onClick={handlePrintReceipt}
+              onClick={() => {
+                if (payments.length > 0) handlePrintReceipt(payments[0]);
+                else alert('No payments recorded for this month to print.');
+              }}
               className="flex items-center gap-2 text-[10px] font-black bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white shadow-sm transition-all active:scale-95 uppercase tracking-wider cursor-pointer"
             >
               <Printer className="h-4 w-4" />

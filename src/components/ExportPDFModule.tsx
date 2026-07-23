@@ -65,7 +65,7 @@ export const ExportPDFModule: React.FC<ExportPDFModuleProps> = ({ isOpen, onClos
       const filtered = payments.filter(p => selectedClass === 'All' || students.find(s => s.id === p.studentId)?.class === selectedClass);
       tableData = filtered.map(p => {
         const student = students.find(s => s.id === p.studentId);
-        return [student?.name, student?.class, `Rs. ${p.amount}`, p.status, p.date];
+        return [student?.name || p.studentName, student?.class || p.studentClass, `Rs. ${p.amountPaid ?? p.amount ?? 0}`, p.status, p.paymentDate || p.date || 'N/A'];
       });
     }
 
