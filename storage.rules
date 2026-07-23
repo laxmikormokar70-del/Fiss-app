@@ -1,0 +1,29 @@
+rules_version = '2';
+
+// Craft rules based on those from storage.firebase.com
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Teacher profiles and banners
+    match /users/{folder}/{fileName} {
+      allow read: if true;
+      allow create, update: if isAuthenticated() && fileName.matches(request.auth.uid + '.*');
+      allow delete: if isAdmin() || (isAuthenticated() && fileName.matches(request.auth.uid + '.*'));
+    }
+
+    // Student photos
+    match /students/photo/{fileName} {
+      allow read: if true;
+      allow create, update: if true; // Allows students registering without auth to upload images.
+      allow delete: if isAdmin() || isAuthenticated();
+    }
+  }
+}

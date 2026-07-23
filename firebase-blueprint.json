@@ -1,0 +1,121 @@
+{
+  "collections": [
+    {
+      "collectionName": "teachers",
+      "description": "Stores teacher profiles, KYC status, and coaching settings",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "schoolName",
+          "type": "string"
+        },
+        {
+          "name": "approvalStatus",
+          "type": "string",
+          "description": "pending, approved, rejected, suspended"
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "description": "admin, teacher"
+        }
+      ]
+    },
+    {
+      "collectionName": "students",
+      "description": "Stores student information managed by a teacher",
+      "fields": [
+        {
+          "name": "teacherId",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "rollNumber",
+          "type": "string"
+        },
+        {
+          "name": "class",
+          "type": "string"
+        },
+        {
+          "name": "batch",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "collectionName": "payments",
+      "description": "Fee payment records for students",
+      "fields": [
+        {
+          "name": "teacherId",
+          "type": "string"
+        },
+        {
+          "name": "studentId",
+          "type": "string"
+        },
+        {
+          "name": "month",
+          "type": "string"
+        },
+        {
+          "name": "amountPaid",
+          "type": "number"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "collectionName": "attendance",
+      "description": "Daily attendance logs",
+      "fields": [
+        {
+          "name": "teacherId",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "type": "string"
+        },
+        {
+          "name": "attendanceMarks",
+          "type": "map"
+        }
+      ]
+    },
+    {
+      "collectionName": "classes",
+      "description": "Custom class configurations for teachers",
+      "fields": [
+        {
+          "name": "teacherId",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
