@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Coaching ERP",
+    "slug": "coaching-erp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1e293b"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.coaching.erp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1e293b"
+      },
+      "package": "com.coaching.erp",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "INTERNET"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Coaching ERP to access camera for student QR scanning."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Coaching ERP to access photos for student profile pictures."
+        }
+      ]
+    ]
+  }
+}
